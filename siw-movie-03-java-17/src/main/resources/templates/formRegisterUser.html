@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SiwMovie-Vendetta</title>
+	<meta name="viewport" content="width=device-width,initials-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/login.css">
+
+</head>
+<body>
+<nav>
+
+
+	<h1 class="logo">SiwMovie<span class="vendetta"> <h6>Vendetta</h6></span></h1>
+	<ul class="nav">
+
+		<div class="box">
+
+
+			<li><a href="/artist">Elenco Artisti</a></li>
+			<li><a href="/movie">Elenco Film</a></li>
+		</div>
+
+
+	</ul>
+
+
+</nav>
+<section>
+	<div class="form-box">
+		<div class="form-value">
+			<form th:action="@{/register}" method="post" class="form">
+				<span class="login">Sign up</span>
+
+				<div class="social-container">
+					<a href="/oauth2/authorization/facebook" class="social" id="facebook"><i class="fa fa-facebook"></i></a>
+					<a href="/oauth2/authorization/google" class="social" id="google"><i class="fa fa-google"></i></a>
+					<a href="/oauth2/authorization/github" class="social" id="github" ><i class="fa fa-github"></i></a>
+				</div>
+
+
+				<input type="text" placeholder="Username" required th:field="${credentials.username}" class="form--input">
+				<span th:if="${#fields.hasErrors('credentials.username')}" th:errors="${credentials.username}"th:style="'color:red'"></span>
+				<!-- password input -->
+				<input type="password" name="password" placeholder="Password" required th:field="${credentials.password}" class="form--input">
+				<span th:if="${#fields.hasErrors('credentials.password')}" th:errors="${credentials.password}"th:style="'color:red'"></span>
+
+				<!-- name input -->
+				<input type="text" placeholder="name" required th:field="${user.name}" class="form--input">
+				<span th:if="${#fields.hasErrors('user.name')}" th:errors="${user.name}"th:style="'color:red'"></span>
+				<!-- surname input -->
+				<input type="text" placeholder="surname" required th:field="${user.surname}" class="form--input">
+				<span th:if="${#fields.hasErrors('user.surname')}" th:errors="${user.surname}"th:style="'color:red'"></span>
+				<!-- email input -->
+				<input type="text" placeholder="email" required th:field="${user.email}" class="form--input">
+				<span th:if="${#fields.hasErrors('user.email')}" th:errors="${user.email}" th:style="'color:red'"></span>
+
+				<span th:if="${param.error != null}">Username o password errati</span>
+				<button type="submit" class="form--submit">
+					Register
+				</button>
+
+			</form>
+		</div>
+	</div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+    outline: none;
+    color: #fff;
+
+}
+body {
+    font-family: acumin-pro, system-ui, sans-serif;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-size: 14px;
+    background-image:  url(/images/sfondo-Cinema.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-color: #f4f4f4;
+    align-items: start;
+    min-height: 100vh;
+}
+
+h1{
+    font-size:50px;
+    color: #FFFFFF;
+}
+h6{
+    font-size:20px;
+    color:#aa7c66;
+}
+nav{
+    width: 100%;
+    height: 50px;
+
+    line-height: 50px;
+}
+nav ul{
+    float: right;
+    margin-right:10px;
+    margin-top:-100px;
+
+}
+nav ul li{
+    list-style-type: none;
+    display: inline-block;
+    transition: 0.7s all;
+
+}
+
+nav ul li a {
+    /*  text-transform: uppercase;*/
+    text-decoration: none;
+    letter-spacing: 0.16em;
+    color: #FFFFFF;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+}
+
+
+
+
+
+nav ul li  a:after {
+    background: none repeat scroll 0 0 transparent;
+    content: "";
+    bottom: 0;
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #aa7c66;
+    border-radius:40px;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+nav ul li a:hover:after {
+    width: 100%;
+    left: 0;
+
+}
+.box h1{
+    padding:10px 10px;
+    color:white;
+}
+.box{
+    padding: 50px 50px ;
+}
+.box ul li{
+    border: solid;
+    list-style-type: none;
+    display: inline-block;
+    transition: 0.7s all;
+
+}
+.box ul li a{
+    color:red;
+    font-size:18px;
+
+}
+div{
+    font-size:18px;
+    color:white;
+    font-weight: bold;
+}
+.box ul li span{
+    color:white;
+    font-weight: bold;
+    font-size:18px;
+}
+.box img {
+     width: 250px;
+    height: 300px;
+}

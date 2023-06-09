@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cerca Film</title>
+	<link rel="stylesheet" href="/css/updatem.css" />
+</head>
+
+<body>
+<nav>
+	<h1 class="logo">SiwMovie<span class="vendetta"> <h6>Vendetta</h6></span></h1>
+	<ul class="nav">
+
+
+		<li><a href="/">HomePage</a></li>
+		<li><div th:if="${userDetails}">
+			<span th:text="${userDetails.username}"></span>
+			<a href="/logout">Logout</a>
+		</div></li>
+		<li><div th:unless="${userDetails}">
+			<a href="/login">Login</a>
+		</div></li>
+	</ul>
+</nav>
+
+<div class="box">
+
+	<div class="form">
+		<h1>Aggiorna Film</h1>
+		<div th:if="${movie}">
+			<div>
+				<span th:text="${movie.title}">Up!</span>
+				<span th:text="'(' + ${movie.year} + ')'">2000</span>
+			</div>
+			<div th:if="${movie.director}">
+				<span>Regista: </span><span th:text="${movie.director.name} + ' ' + ${movie.director.surname}">Steven
+				Spielberg</span>
+				<a th:href="@{'/admin/addDirector/' + ${movie.id}}"> <button type="button"> Modifica regista</button></a></span>
+			</div>
+
+			<div th:unless="${movie.director}">
+				<span>Aggiungi regista: </span><a th:href="@{'/admin/addDirector/' + ${movie.id}}"><button type="button"> Aggiungi</button></a>
+			</div>
+
+			<div>
+				<span>Attori: </span>
+				<div th:each="actor: ${movie.actors}">
+					<span th:text="${actor.name} + ' ' + ${actor.surname}">Al Pacino</span>
+				</div>
+				<a th:href="@{'/admin/updateActors/' + ${movie.id}}">
+					<button type="button">Modifica</button>
+				</a>
+			</div>
+		</div>
+		<div th:unless="${movie}">Film non esistente</div>
+
+	</div>
+</div>
+</body>
+
+</html>

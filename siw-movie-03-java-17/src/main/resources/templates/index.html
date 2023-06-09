@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		SiwMovie - Homepage
+	</title>
+	<link rel="stylesheet" href="/css/index.css" />
+</head>
+
+<body>
+<header>
+
+
+	<nav>
+		<h1 class="logo">SiwMovie<span class="vendetta"> <h6>Vendetta</h6></span></h1>
+			<ul class="nav__links">
+
+				<div class="box">
+
+					<li><a href="/movie">Elenco Film</a></li>
+					<li><a href="/artist">Elenco Artisti</a></li>
+					<li><div th:if="${userDetails}">
+						<span th:text="${userDetails.username}"></span>
+						<a href="/logout">Logout</a>
+					</div></li>
+					<li><div th:unless="${userDetails}">
+						<a href="/login">Login</a>
+					</div>
+					</li>
+				</div>
+
+			</ul>
+	</nav>
+
+
+
+</header>
+
+
+
+</body>
+
+</html>

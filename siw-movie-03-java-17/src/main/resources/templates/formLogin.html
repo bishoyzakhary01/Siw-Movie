@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SiwMovie-Vendetta</title>
+	<meta name="viewport" content="width=device-width,initials-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/login.css">
+
+</head>
+<body>
+<nav>
+	<h1 class="logo">SiwMovie<span class="vendetta"> <h6>Vendetta</h6></span></h1>
+	<ul class="nav">
+
+		<div class="box">
+
+
+			<li><a href="/artist">Elenco Artisti</a></li>
+			<li><a href="/movie">Elenco Film</a></li>
+		</div>
+
+
+	</ul>
+</nav>
+
+
+
+<section>
+	<div class="form-box">
+		<div class="form-value">
+			<form th:action="@{/login}" method="post" class="form">
+				<span class="login">Log In</span>
+
+				<div class="social-container">
+					<a href="/oauth2/authorization/facebook" class="social" id="facebook"><i class="fa fa-facebook"></i></a>
+					<a href="/oauth2/authorization/google" class="social" id="google"><i class="fa fa-google"></i></a>
+					<a href="/oauth2/authorization/github" class="social"id="github" ><i class="fa fa-github"></i></a>
+				</div>
+
+
+				<input type="text" name="username" placeholder="Username" class="form--input">
+				<input type="password" name="password" placeholder="Password" class="form--input">
+				<span th:if="${param.error != null}">Username o password errati</span>
+				<button type="submit" class="form--submit">
+					Login
+				</button>
+				<button class="form--submit">
+					<a href="/register" id="register">Register</a>
+				</button>
+			</form>
+		</div>
+	</div>
+</section>
+
+</body>
+</html>

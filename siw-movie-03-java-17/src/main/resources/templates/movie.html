@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Film</title>
+	<link rel="stylesheet" href="/css/movie.css" />
+</head>
+
+<body>
+<nav>
+	<h1 class="logo">SiwMovie<span class="vendetta"> <h6>Vendetta</h6></span></h1>
+	<ul class="nav">
+
+
+		<li><a href="/">HomePage</a></li>
+		<li><div th:if="${userDetails}">
+			<span th:text="${userDetails.username}"></span>
+			<a href="/logout">Logout</a>
+		</div></li>
+		<li><div th:unless="${userDetails}">
+			<a href="/login">Login</a>
+		</div></li>
+	</ul>
+</nav>
+
+<div class="box">
+	<div class="form">
+		<div th:if="${movie}">
+			<span th:text="${movie.title}">Up!</span>
+			<span th:text="'(' + ${movie.year} + ')'">2000</span>
+
+		</div>
+		<div class="image">
+			<img th:src="@{'/display/image/' + ${movie.image.id}}">
+		</div>
+
+		<div class="artist">
+			<div th:if="${movie.director}">
+				<span>Regista: </span><span th:text="${movie.director.name} + ' ' + ${movie.director.surname}">Steven
+				Spielberg</span>
+
+			</div>
+
+
+
+			<div>
+				<span>Attori: </span>
+				<div th:each="actor: ${movie.actors}">
+					<span th:text="${actor.name} + ' ' + ${actor.surname}">Al Pacino</span>
+				</div>	</div>
+
+		</div>
+
+		<div th:unless="${movie}">Non esiste</div>
+	</div>
+</div>
+</body>
+
+</html>

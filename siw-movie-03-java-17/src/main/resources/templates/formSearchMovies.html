@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cerca Film</title>
+	<link rel="stylesheet" href="/css/formSearch.css" />
+</head>
+
+<body>
+<nav>
+	<h1 class="logo">SiwMovie<span class="vendetta"> <h6>Vendetta</h6></span></h1>
+	<ul class="nav">
+
+
+		<li><a href="/">HomePage</a></li>
+		<li><div th:if="${userDetails}">
+			<span th:text="${userDetails.username}"></span>
+			<a href="/logout">Logout</a>
+		</div></li>
+		<li><div th:unless="${userDetails}">
+			<a href="/login">Login</a>
+		</div></li>
+	</ul>
+</nav>
+
+<div class="box">
+
+	<form th:action="@{/searchMovies}" method="post">
+		<h1>Cerca film per anno</h1>
+		<div>Anno: <input type="text" th:value="${year}" name="year" />
+		</div>
+
+		<div>
+			<button type="submit">Cerca</button>
+		</div>
+
+	</form>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		New Artist
+	</title>
+	<link rel="stylesheet" href="/css/formArtist.css" />
+</head>
+
+<body>
+<nav>
+	<h1 class="logo">SiwMovie<span class="vendetta"> <h6>Vendetta</h6></span></h1>
+	<ul class="nav">
+
+
+		<li><a href="/">HomePage</a></li>
+		<li><div th:if="${userDetails}">
+			<span th:text="${userDetails.username}"></span>
+			<a href="/logout">Logout</a>
+		</div></li>
+		<li><div th:unless="${userDetails}">
+			<a href="/login">Login</a>
+		</div></li>
+	</ul>
+</nav>
+
+
+<div class="box">
+	<form th:action="@{/admin/artist}" method="POST" th:object="${artist}"enctype="multipart/form-data">
+		<h1>Aggiungi un artista</h1>
+		<div>
+			<span th:text="${messaggioErrore}">Errore</span>
+		</div>
+
+		<div>
+			<label>Nome:</label> <span><input required type="text" th:field="${artist.name}" /></span>
+		</div>
+
+		<div>
+			<label>Cognome:</label> <span><input required type="text" th:field="${artist.surname}" /></span>
+		</div>
+
+		<div>
+			<label>Data di nascita:</label> <span><input type="date" th:field="${artist.dateOfBirth}" /></span>
+		</div>
+
+		<div>
+			<label> immagine:</label> <span> <input type="file" name="artistImage" accept="image/png, image/jpeg" /></span>
+		</div>
+
+		<div>
+			<span><button type="submit">Conferma</button></span>
+		</div>
+</div>
+</form>
+
+</body>
+
+</html>

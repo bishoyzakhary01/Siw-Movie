@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		New Movie
+	</title>
+	<link rel="stylesheet" href="/css/fromNewMovie.css" />
+</head>
+
+<body>
+<nav>
+	<h1 class="logo">SiwMovie<span class="vendetta"> <h6>Vendetta</h6></span></h1>
+	<ul class="nav">
+
+
+		<li><a href="/">HomePage</a></li>
+		<li><div th:if="${userDetails}">
+			<span th:text="${userDetails.username}"></span>
+			<a href="/logout">Logout</a>
+		</div></li>
+		<li><div th:unless="${userDetails}">
+			<a href="/login">Login</a>
+		</div></li>
+	</ul>
+</nav>
+
+
+
+<div class="box">
+	<form th:action="@{/admin/movie}" method="POST" th:object="${movie}" enctype="multipart/form-data">
+		<h1>Aggiungi un film</h1>
+		<div th:if="${#fields.hasGlobalErrors()}">
+			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>
+		<div>
+
+			<label>Titolo:</label>
+			<span><input type="text" th:field="${movie.title}" /></span>
+			<span th:if="${#fields.hasErrors('title')}" th:errors="*{title}">
+		    </span>
+		</div>
+
+		<div>
+			<label>Anno:</label> <span><input type="text" th:field="${movie.year}" /></span>
+			<span th:if="${#fields.hasErrors('year')}" th:errors="*{year}">
+		    </span>
+		</div>
+
+		<div>
+			<label> immagine:</label> <span> <input type="file" name="movieImage" accept="image/png, image/jpeg" /></span>
+		</div>
+
+		<div>
+			<span><button type="submit">Conferma</button></span>
+		</div>
+</div>
+
+</form>
+</body>
+
+</html>
