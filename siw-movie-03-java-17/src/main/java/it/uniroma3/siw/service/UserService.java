@@ -38,6 +38,7 @@ public class UserService {
         Optional<User> result = this.userRepository.findByUsername(logina);
         return result.orElse(null);
     }
+
     /**
      * This method saves a User in the DB.
      * @param user the User to save into the DB

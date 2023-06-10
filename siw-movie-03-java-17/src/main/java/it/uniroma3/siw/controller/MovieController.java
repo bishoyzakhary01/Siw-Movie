@@ -105,8 +105,8 @@ private GlobalController globalController;
 		if (!bindingResult.hasErrors()) {
 			this.movieService.createNewMovie(movie, multipartFile);
 			model.addAttribute("movie", movie);
-
-			return "movie.html";
+			return this.movieService.function(model, movie, globalController.getUser());
+			/*return "movie.html";*/
 		} else {
 			return "admin/formNewMovie.html";
 		}

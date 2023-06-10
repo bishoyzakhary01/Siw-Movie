@@ -40,7 +40,6 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
         System.out.println("email: " + email );
         System.out.println("fullname: " + fullName );
 
-
         User user= userService.getUserName(loginName);
 
 

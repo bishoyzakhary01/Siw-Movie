@@ -43,7 +43,7 @@ public class ReviewController {
         }
         this.movieRepository.save(movie);
 
-        return this.movieService.function(model, movie, (User) globalController.getUser());
+        return this.movieService.function(model, movie, (User) this.globalController.getUser());
     }
 
     @GetMapping("/user/deleteReview/{movieId}/{reviewId}")
