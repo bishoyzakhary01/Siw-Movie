@@ -24,7 +24,7 @@
 </nav>
 
 <div class="box">
-	<div class="form">
+	<div class="form2">
 		<div th:if="${movie}">
 			<span th:text="${movie.title}">Up!</span>
 			<span th:text="'(' + ${movie.year} + ')'">2000</span>
@@ -50,9 +50,65 @@
 				</div>	</div>
 
 		</div>
-
-		<div th:unless="${movie}">Non esiste</div>
 	</div>
+</div>
+<div class="com">
+	<h1>Recensioni</h1>
+</div>
+
+<div class="rev">
+	<div th:unless="${hasComment}">
+		<form th:action="@{'/user/uploadReview/' + ${movie.id}}" method="post" th:object="${review}" class="form">
+
+			<div th:if="${#fields.hasGlobalErrors()}">
+				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+			</div>
+			<input required type="text" placeholder="Title" name="title" th:field="${review.title}" class="form--input1">
+			<span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+			<div>
+				<input required type="text" placeholder="Text" name="text" th:field="${review.text}" class="form--input2">
+				<span th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></span>
+			</div>
+			<div class="review-options">
+				<input required type="number" min="1" max="5" name="rating" th:field="${review.rating}" id="animated-input">
+				<span th:if="${#fields.hasErrors('rating')}" th:errors="*{rating}"></span>
+				<button class="comment-button" type="submit">Commenta</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="reviews2">
+	<div th:if="${reviews}">
+		<div th:unless="${reviews.isEmpty()}" class="other-review">
+
+			<ul th:each="rev : ${reviews}">
+				<div class="review">
+					<div class="header">
+						<div class="header1">
+							<span th:text="${rev.author}"></span> <span> : Ha Scritto </span>
+						</div>
+						<div>
+							<span>Titolo: </span> <span th:text="${rev.title}"></span>
+						</div>
+
+						<span>commento: </span> <span th:text="${rev.text}"></span>
+					</div>
+					<div class="bottom-label">
+						<span>Rate: </span><span th:text="'Rating: ' + ${rev.rating}"></span>
+						<button th:if="${role == 'ADMIN'}" class="delete-review">
+							<a th:href="'/admin/deleteReview/' + ${movie.id} + '/' + ${rev.id}" class="log">Delete</a>
+						</button>
+					</div>
+				</div>
+			</ul>
+		</div>
+	</div>
+
+
+
+	<div th:unless="${movie}">Non esiste</div>
+
 </div>
 </body>
 

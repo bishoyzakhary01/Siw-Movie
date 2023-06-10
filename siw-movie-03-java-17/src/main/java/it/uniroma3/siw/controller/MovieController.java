@@ -5,10 +5,12 @@ import java.io.IOException;
 import java.util.List;
 
 import it.uniroma3.siw.FileUploadUtil;
+import it.uniroma3.siw.model.Review;
 import it.uniroma3.siw.model.User;
 import it.uniroma3.siw.service.ArtistService;
 import it.uniroma3.siw.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -36,11 +38,13 @@ public class MovieController {
 
 	@Autowired
 	private MovieValidator movieValidator;
-
+@Autowired
+private GlobalController globalController;
 
 	@GetMapping(value="/admin/formNewMovie")
 	public String formNewMovie(Model model) {
 		model.addAttribute("movie", new Movie());
+
 		return "admin/formNewMovie.html";
 	}
 
@@ -49,6 +53,7 @@ public class MovieController {
 		Movie movie=movieService.findMovieById(id);
 		if(movie!=null) {
 			model.addAttribute("movie", movie);
+			model.addAttribute("review",new Review());
 			return "admin/formUpdateMovie.html";
 		}
 		else{
@@ -94,12 +99,13 @@ public class MovieController {
 	}
 
 	@PostMapping("/admin/movie")
-	public String newMovie(@Valid @ModelAttribute("movie") Movie movie, BindingResult bindingResult,@RequestParam("movieImage") MultipartFile multipartFile,  Model model) {
+	public String newMovie(@Valid @ModelAttribute("movie") Movie movie, BindingResult bindingResult, @RequestParam("movieImage") MultipartFile multipartFile, Model model) {
 
 		this.movieValidator.validate(movie, bindingResult);
 		if (!bindingResult.hasErrors()) {
 			this.movieService.createNewMovie(movie, multipartFile);
 			model.addAttribute("movie", movie);
+
 			return "movie.html";
 		} else {
 			return "admin/formNewMovie.html";
@@ -107,15 +113,15 @@ public class MovieController {
 	}
 
 	@GetMapping("/movie/{id}")
-	public String getMovie(@PathVariable("id") Long id, Model model) {
+	public String getMovie(@PathVariable("id") Long id, Model model,Review review) {
 		Movie movie = movieService.findMovieById(id);
-		if (movie != null) {
+
 			model.addAttribute("movie", movie);
+			model.addAttribute("reviews", movie.getReviews());
+
 			//model.addAttribute("nummovies",movieService.count());
-			return "movie.html";
-		}else{
-			return "notFound.html";
-		}
+			return this.movieService.function(model, movie, (User) globalController.getUser());
+
 
 	}
 
@@ -158,6 +164,7 @@ public class MovieController {
 			List<Artist> actorsToAdd = this.artistService.findActorNotInMovie(movieId);
 			model.addAttribute("movie", movie);
 			model.addAttribute("actorsToAdd", actorsToAdd);
+			model.addAttribute("actorsToAdd", movie.getActors());
 			return "admin/actorsToAdd.html";
 		}
 		else{
@@ -175,6 +182,7 @@ public class MovieController {
 
 			model.addAttribute("movie", movie);
 			model.addAttribute("actorsToAdd", actorsToAdd);
+			model.addAttribute("actorsToAdd", movie.getActors());
 
 			return "admin/actorsToAdd.html";
 		} else {

@@ -1,37 +1,47 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<title>SiwMovie - Registrazione conclusa</title>
+	<title>Cerca Film</title>
 	<link rel="stylesheet" href="/css/stile.css" />
 </head>
 
 <body>
-	<header>
-		<div th:if="${userDetails}">
+<nav>
+	<h1 class="logo">SiwMovie<span class="vendetta"> <h6>Vendetta</h6></span></h1>
+	<ul class="nav">
+
+
+		<li><a href="/">HomePage</a></li>
+		<li><div th:if="${userDetails}">
 			<span th:text="${userDetails.username}"></span>
 			<a href="/logout">Logout</a>
-		</div>
-		<div th:unless="${user}">
+		</div></li>
+		<li><div th:unless="${userDetails}">
 			<a href="/login">Login</a>
-		</div>
-	</header>
+		</div></li>
+	</ul>
+</nav>
 
-	<div>
-		<a href="/"><img src="/images/logo-siw.png" width="50%"/></a>
+<div class="box">
+
+	<div class="form">
+		<h1>Congratulazioni ti sei registrato!</h1>
+
+		<div>
+			<span>Nome: </span>
+			<span th:text="${user.name}"></span>
+		</div>
+		<div>
+			<span>Cognome: </span>
+			<span th:text="${user.surname}"></span>
+		</div>
+		<div>
+			<span>Email: </span>
+			<span th:text="${user.email}"></span>
+		</div>
+
 	</div>
-	<h1>Congratulazioni ti sei registrato!</h1>
-	<div>
-		<span>Nome: </span>
-		<span th:text="${user.name}"></span>
-	</div>
-	<div>
-		<span>Cognome: </span>
-		<span th:text="${user.surname}"></span>
-	</div>
-	<div>
-		<span>Email: </span>
-		<span th:text="${user.email}"></span>
-	</div>
+</div>
 </body>
+
 </html>

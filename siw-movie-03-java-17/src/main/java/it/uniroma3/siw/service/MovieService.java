@@ -1,16 +1,12 @@
 package it.uniroma3.siw.service;
 
 
-import it.uniroma3.siw.model.Artist;
-import it.uniroma3.siw.model.Image;
-import it.uniroma3.siw.model.Movie;
-import it.uniroma3.siw.model.Review;
+import it.uniroma3.siw.model.*;
 import it.uniroma3.siw.repository.ArtistRepository;
 import it.uniroma3.siw.repository.ImageRepository;
 import it.uniroma3.siw.repository.MovieRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
@@ -48,7 +44,7 @@ ImageRepository imageRepository;
     }
 
     @Transactional
-    public Movie createNewMovie(Movie movie,MultipartFile multipartFile) {
+    public Movie createNewMovie(Movie movie, MultipartFile multipartFile) {
         try {
 
             movie.setImage(imageRepository.save(new Image(multipartFile.getBytes())));
@@ -130,7 +126,7 @@ ImageRepository imageRepository;
     }
 
 
-    public String function(Model model, Movie movie, UserDetails user){
+    public String function(Model model, Movie movie, User user){
         Set<Artist> movieCast = new HashSet<>();
         if(movie.getActors() != null)
             movieCast.addAll(movie.getActors());

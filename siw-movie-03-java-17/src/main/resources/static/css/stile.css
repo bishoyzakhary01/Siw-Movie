@@ -1,33 +1,169 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+    outline: none;
+    /* color: #135480 ;*/
+
+
+}
+
 body {
-    font-family: "Geneva";
-    color:dimgrey;
+    font-family: acumin-pro, system-ui, sans-serif;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-size: 14px;
+    background-image:  url(/images/sfondo-Cinema.jpg);
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-color: #f4f4f4;
+    align-items: start;
+    min-height: 100vh;
+
 }
 
-a { 
-	text-decoration: none; 
-    color: darkgrey;
+
+h1{
+    font-size:50px;
+    color:white;
+}
+h6{
+    font-size:20px;
+    color:#aa7c66;
+}
+nav{
+    width: 100%;
+    height: 50px;
+
+    line-height: 50px;
+}
+nav ul{
+    float: right;
+    margin-right:10px;
+    margin-top:-100px;
+
+}
+nav ul li{
+    list-style-type: none;
+    display: inline-block;
+    transition: 0.7s all;
+
 }
 
-a:hover { 
-	text-decoration: underline; 
+nav ul li a {
+    /*  text-transform: uppercase;*/
+    text-decoration: none;
+    letter-spacing: 0.16em;
+    color:white;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
 }
 
-label {
-	width: 8em;
-	display: inline-block;
+
+
+
+
+nav ul li  a:after {
+    background: none repeat scroll 0 0 transparent;
+    content: "";
+    bottom: 0;
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #aa7c66;
+    border-radius:40px;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+nav ul li a:hover:after {
+    width: 100%;
+    left: 0;
+
 }
 
-header {
-  background-color: rgb(98, 192, 144);
-  color: white;
-  height: 1.5em;
-  margin-bottom: 0.5em;
-  padding: 0.2em;
-  text-align: right; 
+
+
+.form {
+    box-shadow: 0px 0px 10px 0px rgb(116, 119, 114);
+    padding: 100px  100px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left:2%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    opacity: 0.8;
+    border: 1.5px solid rgb(0, 0, 0);
+    top: 20%;
+    background: hsla(0, 0%, 100%, .3);
+    box-shadow: 5px 3px 30px black;
+    overflow: hidden;
 }
 
-header a { 
-	text-decoration: none; 
-    color: white;
-    font-size: 0.6em;
+
+.form::before {
+    content: '';
+    margin: -35px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: blur(40px);
+    z-index: -1;
+}
+.box h1{
+    color:black;
+}
+.box{
+
+    font-size:30px;
+    color:black;
+    left: 0;
+    right: 0;
+    top: 30%;
+
+    margin-left: auto;
+    margin-right: auto;
+    /* Need a specific value to work */
+}
+
+
+
+
+
+.box button{
+    list-style-type: none;
+    display: inline-block;
+    margin:5%;
+    transition: 0.7s all;
+    background-image: linear-gradient(to right, #603813 0%, #b29f94  51%, #603813  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #000;
+    underline:none;
+    text-decoration: none;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+.box button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+
 }

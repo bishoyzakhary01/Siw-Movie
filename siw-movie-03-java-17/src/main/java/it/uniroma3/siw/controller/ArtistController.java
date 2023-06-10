@@ -20,8 +20,9 @@ public class ArtistController {
 	@Autowired
 	private ArtistService artistService;
 	@GetMapping(value="/admin/formNewArtist")
-	public String formNewArtist(Model model) {
+	public String formNewArtist(Model model,Artist artist) {
 		model.addAttribute("artist", new Artist());
+		model.addAttribute("attori",  artist.getActorOf());
 		return "admin/formNewArtist.html";
 	}
 	
@@ -35,6 +36,7 @@ public class ArtistController {
 		if (!bindingResult.hasErrors()) {
 			this.artistService.createNewArtisits(artist,multipartFile);
 			model.addAttribute("artist", artist);
+			model.addAttribute("attori",  artist.getActorOf());
 			return "artist.html";
 		} else {
 			model.addAttribute("messaggioErrore", "Questo artista esiste già");
@@ -43,8 +45,10 @@ public class ArtistController {
 	}
 
 	@GetMapping("/artist/{id}")
-	public String getArtist(@PathVariable("id") Long id, Model model) {
+	public String getArtist(@PathVariable("id") Long id, Model model,Artist artist) {
 		model.addAttribute("artist", this.artistRepository.findById(id).get());
+		model.addAttribute("directed", artist.getDirectorOf());
+		model.addAttribute("acted", artist.getActorOf());
 		return "artist.html";
 	}
 

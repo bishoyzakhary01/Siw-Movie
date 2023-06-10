@@ -90,7 +90,7 @@ nav ul li a:hover:after {
 
 
 
-.form {
+.form2 {
     box-shadow: 0px 0px 10px 0px rgb(116, 119, 114);
     padding: 100px  100px;
 
@@ -113,7 +113,7 @@ nav ul li a:hover:after {
 }
 
 
-.form::before {
+.form2::before {
     content: '';
     margin: -35px;
     position: absolute;
@@ -144,7 +144,7 @@ nav ul li a:hover:after {
 
 
 
-.box button{
+.rev button{
     list-style-type: none;
     display: inline-block;
     margin:5%;
@@ -162,17 +162,153 @@ nav ul li a:hover:after {
     border-radius: 10px;
     display: block;
 }
-.box button:hover {
+.rev button:hover {
     background-position: right center; /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
 
 }
 
-
+.rev input{
+    border-radius: 15px;
+    padding: 8px  13px;
+}
 
 
 .box img {
     width: 550px;
     height: 400px;
+}
+.rev{
+
+    box-shadow: 0px 0px 10px 0px rgb(116, 119, 114);
+    padding: 100px  270px;
+
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left:2%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    opacity: 0.8;
+    border: 1.5px solid rgb(0, 0, 0);
+
+    top: 20%;
+    background: hsla(0, 0%, 100%, .3);
+    box-shadow: 5px 3px 30px black;
+    overflow: hidden;
+
+}
+
+
+.rev::before {
+    content: '';
+    margin: -35px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: blur(40px);
+    z-index: -1;
+
+}
+.com{
+    padding: 10px  10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    top:50px;
+}
+.com h1{
+    color:black;
+}
+.rev input{
+    padding:15px;
+}
+.reviews2 h1{
+    padding-top: 2%;
+    color:black;
+    font-size: 40px;
+
+}
+.header span{
+    color:Black;
+    font-size: 25px;
+
+}
+.reviews2 p{
+    color:Black;
+    font-size: 16px;
+
+}
+.bottom-label span{
+    color:Black;
+    font-size: 25px;
+
+}
+.reviews2{
+    box-shadow: 0px 0px 10px 0px rgb(116, 119, 114);
+    padding: 100px  270px;
+
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left:2%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    opacity: 0.8;
+    border: 1.5px solid rgb(0, 0, 0);
+    top: 30%;
+    background: hsla(0, 0%, 100%, .3);
+    box-shadow: 5px 3px 30px black;
+    overflow: hidden;
+
+}
+
+.reviews2::before {
+    content: '';
+    margin: -35px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: blur(40px);
+    z-index: -1;
+
+}
+.reviews2 button{
+    list-style-type: none;
+    display: inline-block;
+    margin:5%;
+    transition: 0.7s all;
+    background-image: linear-gradient(to right, #603813 0%, #b29f94  51%, #603813  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #000;
+
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+.reviews2 button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+
 }
