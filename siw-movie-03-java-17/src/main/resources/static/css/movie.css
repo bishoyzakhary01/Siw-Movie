@@ -196,7 +196,7 @@ nav ul li a:hover:after {
     opacity: 0.8;
     border: 1.5px solid rgb(0, 0, 0);
 
-    top: 20%;
+    top: 10%;
     background: hsla(0, 0%, 100%, .3);
     box-shadow: 5px 3px 30px black;
     overflow: hidden;

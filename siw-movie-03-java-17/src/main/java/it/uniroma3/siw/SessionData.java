@@ -51,7 +51,7 @@ import java.util.NoSuchElementException;
             return this.user;
         }
 
-        /*throe class casta exception tolta, forse è da rimettere*/
+
 
         private void update() {
             Object object = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
