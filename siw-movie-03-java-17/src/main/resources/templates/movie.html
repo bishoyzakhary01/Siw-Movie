@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
 	<title>Film</title>
@@ -96,7 +96,7 @@
 					</div>
 					<div class="bottom-label">
 						<span>Rate: </span><span th:text="'Rating: ' + ${rev.rating}"></span>
-						<button th:if="${role == 'ADMIN'}" class="delete-review">
+						<button  sec:authorize="hasAuthority('ADMIN')" class="delete-review">
 							<a th:href="'/admin/deleteReview/' + ${movie.id} + '/' + ${rev.id}" class="log">Delete</a>
 						</button>
 					</div>

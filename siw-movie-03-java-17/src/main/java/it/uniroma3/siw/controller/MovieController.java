@@ -159,7 +159,7 @@ private GlobalController globalController;
 	@GetMapping(value="/admin/addActorToMovie/{actorId}/{movieId}")
 	public String addActorToMovie(@PathVariable("actorId") Long actorId, @PathVariable("movieId") Long movieId, Model model) {
 
-		Movie movie = this.movieService.saveDirectorToMovie(movieId, actorId);
+		Movie movie = this.movieService.saveActorToMovie(movieId, actorId);
 		if (movie != null){
 			List<Artist> actorsToAdd = this.artistService.findActorNotInMovie(movieId);
 			model.addAttribute("movie", movie);

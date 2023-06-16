@@ -31,7 +31,7 @@
 		<ul>
 			<li th:each="actor : ${movie.actors}">
 				<span th:text="${actor.name}+' '+${actor.surname}"></span>
-				<a th:href="@{'/admin/removeActorFromMovie/'+ ${actor.id}+'/'+${movie.id}}">Cancella</a>
+				<a th:href="@{'/admin/removeActorFromMovie/'+ ${actor.id}+'/'+${movie.id}}"><button type="button"> Cancella</button></a>
 			</li>
 
 		</ul>
