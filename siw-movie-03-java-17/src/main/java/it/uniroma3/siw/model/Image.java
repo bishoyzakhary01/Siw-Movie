@@ -14,8 +14,8 @@ public class Image {
 
     private byte[] bytes;
 
-    private String base64Image;
 
+    private String base64Image;
     public Image(){
 
     }
@@ -41,6 +41,7 @@ public class Image {
         this.bytes = bytes;
     }
 
+
     public String getBase64Image() {
         return base64Image;
     }
@@ -48,4 +49,6 @@ public class Image {
     public void setBase64Image(String base64Image) {
         this.base64Image = base64Image;
     }
+
+
 }

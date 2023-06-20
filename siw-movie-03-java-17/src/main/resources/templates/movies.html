@@ -27,11 +27,14 @@
 
 
 	<div class="box">
-		<h1>Film</h1>
+		<h1>Film <span th:text="${nummovies}"></span> </h1>
+
+
 	<div th:if="${movies==null || movies.isEmpty()}">Non ci sono film nel sistema</div>
 	<ul>
 		<li th:each="movie : ${movies}">
-			<a th:href="@{'/movie' + '/' + ${movie.id}}"><img th:src="@{'/display/image/' + ${movie.image.id}}" width="50%"/></a>
+			<a th:href="@{'/movie' + '/' + ${movie.id}}"><img th:src="@{'/display/image/' + ${movie.image.id}}" width="50%" loading="lazy"/> </a>
+
 		</li>
 	</ul>
 	</div>

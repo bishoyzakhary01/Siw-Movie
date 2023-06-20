@@ -31,7 +31,7 @@
 
 		</div>
 		<div class="image">
-			<img th:src="@{'/display/image/' + ${movie.image.id}}">
+			<img th:src="@{'/display/image/' + ${movie.image.id}}" width="50%">
 		</div>
 
 		<div class="artist">
@@ -52,9 +52,7 @@
 		</div>
 	</div>
 </div>
-<div class="com">
-	<h1>Recensioni</h1>
-</div>
+
 
 <div class="rev">
 	<div th:unless="${hasComment}">
@@ -96,9 +94,12 @@
 					</div>
 					<div class="bottom-label">
 						<span>Rate: </span><span th:text="'Rating: ' + ${rev.rating}"></span>
-						<button  sec:authorize="hasAuthority('ADMIN')" class="delete-review">
-							<a th:href="'/admin/deleteReview/' + ${movie.id} + '/' + ${rev.id}" class="log">Delete</a>
-						</button>
+						<div class="button2">
+							<button  sec:authorize="hasAuthority('ADMIN')" class="delete-review">
+								<a th:href="'/admin/deleteReview/' + ${movie.id} + '/' + ${rev.id}" class="log">Delete</a>
+							</button>
+
+						</div>
 					</div>
 				</div>
 			</ul>

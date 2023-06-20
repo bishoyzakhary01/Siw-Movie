@@ -1,11 +1,6 @@
 package it.uniroma3.siw.model;
 
-import it.uniroma3.siw.oauth.AuthenticationProvider;
 import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
-import java.time.LocalDateTime;
 
 @Entity
 public class Credentials {
@@ -18,11 +13,14 @@ public class Credentials {
     private Long id;
 	private String username;
 	private String password;
+
+
+
+
 	private String role;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private User user;
-
 
 
 
@@ -65,7 +63,6 @@ public class Credentials {
 	public void setRole(String role) {
 		this.role = role;
 	}
-
 
 
 

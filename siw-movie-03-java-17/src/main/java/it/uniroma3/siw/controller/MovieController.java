@@ -1,19 +1,16 @@
 package it.uniroma3.siw.controller;
 
 
-import java.io.IOException;
 import java.util.List;
 
-import it.uniroma3.siw.FileUploadUtil;
 import it.uniroma3.siw.model.Review;
 import it.uniroma3.siw.model.User;
+import it.uniroma3.siw.repository.MovieRepository;
 import it.uniroma3.siw.service.ArtistService;
 import it.uniroma3.siw.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,13 +23,13 @@ import it.uniroma3.siw.model.Movie;
 
 import jakarta.validation.Valid;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class MovieController {
 	@Autowired
 	private MovieService movieService;
-
+	@Autowired
+	private MovieRepository movieRepository;
 	@Autowired
 	private ArtistService artistService;
 
@@ -119,7 +116,6 @@ private GlobalController globalController;
 			model.addAttribute("movie", movie);
 			model.addAttribute("reviews", movie.getReviews());
 
-			//model.addAttribute("nummovies",movieService.count());
 			return this.movieService.function(model, movie, (User) globalController.getUser());
 
 
@@ -127,7 +123,9 @@ private GlobalController globalController;
 
 	@GetMapping("/movie")
 	public String getMovies(Model model) {
-		model.addAttribute("movies", this.movieService.findAllMovie());
+		model.addAttribute("nummovies",movieService.count());
+		model.addAttribute("movies", this.movieRepository.findAllByOrderByYear());
+
 		return "movies.html";
 	}
 
