@@ -29,6 +29,7 @@ public class CredentialsValidator implements Validator {
         String userName = credentials.getUsername().trim();
         String password= credentials.getPassword().trim();
 
+
         if(userName.isEmpty()){
             errors.rejectValue("userName","required");
         }
@@ -45,5 +46,6 @@ public class CredentialsValidator implements Validator {
         else if(password.length() < MIN_PASSWORD_LENGTH || password.length() > MAX_PASSWORD_LENGTH){
             errors.rejectValue("password","size");
         }
+
     }
 }

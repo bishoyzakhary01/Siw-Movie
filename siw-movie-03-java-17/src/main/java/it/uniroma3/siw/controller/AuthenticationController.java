@@ -81,6 +81,8 @@ public class AuthenticationController {
                  Model model) {
 
 
+			this.credentialsValidator.validate(credentials,credentialsBindingResult);
+
         if(!userBindingResult.hasErrors() && !credentialsBindingResult.hasErrors()) {
 
             credentials.setUser(user);

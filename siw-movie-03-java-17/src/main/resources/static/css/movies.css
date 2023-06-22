@@ -114,4 +114,5 @@ div{
 .box img {
     width: 250px;
     height: 300px;
+   /* object-fit: cover;*/
 }

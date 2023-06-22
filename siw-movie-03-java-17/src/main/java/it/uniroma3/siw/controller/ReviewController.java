@@ -46,7 +46,7 @@ public class ReviewController {
         return this.movieService.function(model, movie, (User) this.globalController.getUser());
     }
 
-    @GetMapping("/user/deleteReview/{movieId}/{reviewId}")
+    @GetMapping("/admin/deleteReview/{movieId}/{reviewId}")
     public String removeReview(Model model, @PathVariable("movieId") Long movieId,@PathVariable("reviewId") Long reviewId){
         Movie movie = this.movieRepository.findById(movieId).get();
         Review review = this.reviewRepository.findById(reviewId).get();

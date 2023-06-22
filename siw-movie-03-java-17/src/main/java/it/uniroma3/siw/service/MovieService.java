@@ -154,9 +154,9 @@ ImageRepository imageRepository;
     }
 
 
-   /* public long count() {
+   public long count() {
 
         return movieRepository.count();
-    }*/
+    }
 }
 

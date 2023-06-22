@@ -46,6 +46,8 @@
 				<input type="password" name="password" placeholder="Password" required th:field="${credentials.password}" class="form--input">
 				<span th:if="${#fields.hasErrors('credentials.password')}" th:errors="${credentials.password}"th:style="'color:red'"></span>
 
+
+
 				<!-- name input -->
 				<input type="text" placeholder="name" required th:field="${user.name}" class="form--input">
 				<span th:if="${#fields.hasErrors('user.name')}" th:errors="${user.name}"th:style="'color:red'"></span>

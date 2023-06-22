@@ -196,7 +196,7 @@ nav ul li a:hover:after {
     opacity: 0.8;
     border: 1.5px solid rgb(0, 0, 0);
 
-    top: 10%;
+    top: 13%;
     background: hsla(0, 0%, 100%, .3);
     box-shadow: 5px 3px 30px black;
     overflow: hidden;
@@ -216,20 +216,7 @@ nav ul li a:hover:after {
     z-index: -1;
 
 }
-.com{
-    padding: 10px  10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    top:50px;
-}
-.com h1{
-    color:black;
-}
+
 .rev input{
     padding:15px;
 }
@@ -240,18 +227,21 @@ nav ul li a:hover:after {
 
 }
 .header span{
-    color:Black;
-    font-size: 25px;
+
+    color:black;
+    font-size: 35px;
 
 }
 .reviews2 p{
-    color:Black;
-    font-size: 16px;
+    color:black;
+    font-size: 35px;
 
 }
 .bottom-label span{
-    color:Black;
-    font-size: 25px;
+
+    color:black;
+
+    font-size: 35px;
 
 }
 .reviews2{
@@ -311,4 +301,31 @@ nav ul li a:hover:after {
     color: #fff;
     text-decoration: none;
 
+}
+
+
+
+
+
+
+
+
+.button2 button {
+    background-image: linear-gradient(to right, #e52d27 0%, #b31217  51%, #e52d27  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+button2 button:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
 }

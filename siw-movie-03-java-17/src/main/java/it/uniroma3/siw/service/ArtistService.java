@@ -75,4 +75,5 @@ ImageRepository imageRepository;
 
         return artist;
     }
+
 }
