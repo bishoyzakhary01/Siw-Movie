@@ -33,11 +33,13 @@
 	<div th:if="${movies==null || movies.isEmpty()}">Non ci sono film nel sistema</div>
 	<ul>
 		<li th:each="movie : ${movies}">
-<<<<<<< HEAD
+
 			<a th:href="@{'/movie' + '/' + ${movie.id}}"><img th:src="@{'/display/image/' + ${movie.image.id}}" width="50%" /> </a>
-=======
+
 			<a th:href="@{'/movie' + '/' + ${movie.id}}"><img th:src="@{'/display/image/' + ${movie.image.id}}" width="50%" loading="lazy"/> </a>
->>>>>>> 43cebd9f049cece3722e9161a6e5b001db5b3dbd
+
+			<a th:href="@{'/movie' + '/' + ${movie.id}}"><img th:src="@{'/display/image/' + ${movie.image.id}}" width="50%" loading="lazy"/> </a>
+
 
 		</li>
 	</ul>
